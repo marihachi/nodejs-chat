@@ -20,6 +20,12 @@ app.get('/script.js',function(req,res){
 		res.end(b);
 	});
 });
+app.get('/style.css',function(req,res){
+	fs.readFile("./style.css",function(a,b){
+		res.writeHeader(200,{"content-type":"text/css"});
+		res.end(b);
+	});
+});
 setTimeout(function(){
 	io.emit("reload");
 },5000);

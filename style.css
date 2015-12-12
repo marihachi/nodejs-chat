@@ -1,0 +1,46 @@
+* {
+    padding :0;
+    margin: 0;
+    transition: all 1s ease 0s;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: rgb(119, 180, 167);
+}
+
+form#a, form#b {
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"] {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 6px;
+    background-color: transparent;
+    font-size: 14px;
+    width: 100%;
+}
+
+input[type="submit"], input[type="button"] {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 10%;
+}
+
+input[type="text"]:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#timeline * {
+    color: rgb(64, 125, 112);
+}
+
+#timeline div {
+    background-color: rgba(255, 255, 255, 0.44);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}

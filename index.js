@@ -47,6 +47,9 @@ io.on('connection', function(socket){
 			io.emit("updateinfo");
 			io.emit("system",name+"さんが退室したようです");
 		});
+		socket.on("unko",function(){
+			io.emit("unko",name);
+		});
 	});
 	socket.on("disconnect",function(){
 		romcount--;

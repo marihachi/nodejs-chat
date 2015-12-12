@@ -4,6 +4,13 @@ $(function(){
 		console.log(mes);
 		$("#timeline").prepend('<div><strong>'+h(mes.name)+'</strong> : '+h(mes.msg)+'</div>');
 		if(mes.msg==="ping") sock.emit("chat message","pong");
+		if(mes.msg==="unko") sock.emit("unko");
+		if(mes.msg==="toilet"){
+			$(".unko").removeClass("unko").addClass("toilet");
+		}
+	});
+	sock.on("unko",function(name){
+		$("#timeline").prepend('<div><strong>'+name+'</strong> : <span class="unko"></div>');
 	});
 	sock.on("system",function(mes){
 		$("#timeline").prepend('<div><strong>'+h(mes)+'</strong></div>');

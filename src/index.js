@@ -52,7 +52,7 @@ io.on('connection', function(socket){
 			io.emit("system",name+"さんが"+_name+"として入ろうとしましたが、すでに入室していました。");
 			return;
 		}
-		if(name.length>20){
+		if(_name.length>20){
 			socket.emit("system","名前は３０文字までです");
 			return;
 		}

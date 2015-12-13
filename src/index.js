@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/old',function(req,res){
-	res.render(__dirname + "/old-index.jade");
+	res.render("old-index.jade");
 });
 
 app.get('/count',function(req,res){

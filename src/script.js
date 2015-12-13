@@ -26,6 +26,8 @@ $(function(){
 	$("#a").submit(function(ev){
 		ev.preventDefault();
 		sock.emit("join",$("#name").val());
+	});
+	sock.on("join",function(){
 		$("#name").val("");
 		$("#a").hide();
 		$("#b").show();

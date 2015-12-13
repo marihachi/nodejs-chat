@@ -59,7 +59,7 @@ io.on('connection', function(socket){
 		name=_name;
 		joincount++;
 		socket.emit("join");
-		console.log("join",name,socket.handshake.headers.host);
+		console.log("join",name,socket.handshake.headers.address);
 		io.emit("system",name+"さんが入室しました");
 		io.emit("updateinfo");
 		socket.on("chat message",function(msg){

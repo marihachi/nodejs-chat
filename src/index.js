@@ -58,7 +58,7 @@ io.on('connection', function (socket) {
 			return;
 		}
 		if (_name.length > 20) {
-			socket.emit("system", "名前は３０文字までです");
+			socket.emit("system", "名前は20文字までです");
 			return;
 		}
 		name = _name;

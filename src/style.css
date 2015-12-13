@@ -36,6 +36,9 @@ input[type="text"] {
 	color:rgba(255, 255, 255, 0.8);
 	font-size: 14px;
 	border-radius: 6px;
+	::placeholder{
+		color:rgba(255,255,255,0.6);
+	}
 }
 
 input[type="text"]:focus {

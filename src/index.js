@@ -5,6 +5,9 @@ var fs = require("fs");
 var romcount=0;
 var joincount=0;
 
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+
 app.get('/', function(req, res){
 	res.render("index.jade");
 });
@@ -19,19 +22,19 @@ app.get('/count',function(req,res){
 });
 
 app.get('/script.js',function(req,res){
-	fs.readFile("./script.js",function(a,b){
+	fs.readFile(__dirname + "/script.js",function(a,b){
 		res.writeHeader(200,{"content-type":"text/javascript"});
 		res.end(b);
 	});
 });
 app.get('/style.css',function(req,res){
-	fs.readFile("./build.style.css",function(a,b){
+	fs.readFile(__dirname + "/style.css",function(a,b){
 		res.writeHeader(200,{"content-type":"text/css"});
 		res.end(b);
 	});
 });
 app.get('/common.css',function(req,res){
-	fs.readFile("./build.common.css",function(a,b){
+	fs.readFile(__dirname + "/build.common.css",function(a,b){
 		res.writeHeader(200,{"content-type":"text/css"});
 		res.end(b);
 	});

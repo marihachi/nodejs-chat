@@ -11,8 +11,11 @@ html {
 	background-color: rgb(119, 180, 167);
 }
 
+#timeline div, form#a, form#b {
+	margin: 10px;
+}
+
 form#a, form#b {
-	margin: 15px;
 	display: flex;
 }
 
@@ -27,22 +30,28 @@ form#a, form#b {
 }
 
 input[type="text"] {
-	border: 1px solid rgba(0, 0, 0, 0.25);
+	border: 2px solid rgba(255, 255, 255, 0.3);
 	padding: 6px;
-	background-color: rgba(255,255,255,0.8);
-	color:rgba(0,0,0,0.8);
-	font-size: 14px;
-}
-
-input[type="submit"], input[type="button"] {
-	border: 1px solid rgba(0, 0, 0, 0.25);
-	color:rgba(0,0,0,0.6);
-	border-radius: 6px;
 	background-color: transparent;
+	color:rgba(255, 255, 255, 0.8);
+	font-size: 14px;
+	border-radius: 6px;
 }
 
 input[type="text"]:focus {
-	border: 1px solid rgba(0, 0, 0, 0.5);
+	border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:focus {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+input[type="submit"], input[type="button"] {
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.8);
+	border-radius: 6px;
+	background-color: transparent;
+	margin-left: 10px;
 }
 
 #timeline * {
@@ -51,7 +60,6 @@ input[type="text"]:focus {
 
 #timeline div {
 	background-color: rgba(255, 255, 255, 0.44);
-	margin: 5px;
 	padding: 10px;
 	border-radius: 10px;
 }

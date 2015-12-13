@@ -28,13 +28,13 @@ app.get('/script.js',function(req,res){
 	});
 });
 app.get('/style.css',function(req,res){
-	fs.readFile(__dirname + "/../dest/style.css",function(a,b){
+	fs.readFile(__dirname + "/style.css",function(a,b){
 		res.writeHeader(200,{"content-type":"text/css"});
 		res.end(b);
 	});
 });
 app.get('/common.css',function(req,res){
-	fs.readFile(__dirname + "/../dest/common.css",function(a,b){
+	fs.readFile(__dirname + "/common.css",function(a,b){
 		res.writeHeader(200,{"content-type":"text/css"});
 		res.end(b);
 	});

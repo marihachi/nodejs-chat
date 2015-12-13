@@ -46,7 +46,13 @@ io.on('connection', function(socket){
 	console.log('a user connected');
 	romcount++;
 	io.emit("updateinfo");
-	socket.on("join",function(name){
+	var name="";
+	socket.on("join",function(_name){
+		if(name){
+			io.emit("system",name+"さんが"+_name+"として入ろうとしましたが、すでに入室していました。");
+			return;
+		}
+		name=_name;
 		joincount++;
 		io.emit("system",name+"さんが入室しました");
 		io.emit("updateinfo");

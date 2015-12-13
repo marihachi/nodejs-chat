@@ -50,7 +50,7 @@ io.on('connection', function (socket) {
 	var name = "";
 	socket.on("join", function (_name) {
 		if (nameList.indexOf(_name) !== -1) {
-			io.emit("system", _name + "という名前はすでに使われています。");
+			sock.emit("system", _name + "という名前はすでに使われています。");
 			return;
 		}
 		if (name !== "") {

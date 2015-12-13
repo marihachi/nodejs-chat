@@ -21,7 +21,7 @@ app.get('/script.js',function(req,res){
 	});
 });
 app.get('/style.css',function(req,res){
-	fs.readFile("./style.css",function(a,b){
+	fs.readFile("./build.style.css",function(a,b){
 		res.writeHeader(200,{"content-type":"text/css"});
 		res.end(b);
 	});

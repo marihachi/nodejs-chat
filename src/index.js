@@ -18,13 +18,13 @@ app.get('/count',function(req,res){
 });
 
 app.get('/script.js',function(req,res){
-	fs.readFile("./script.js",function(a,b){
+	fs.readFile(__dirname + "/script.js",function(a,b){
 		res.writeHeader(200,{"content-type":"text/javascript"});
 		res.end(b);
 	});
 });
 app.get('/style.css',function(req,res){
-	fs.readFile("./style.css",function(a,b){
+	fs.readFile(__dirname + "/style.css",function(a,b){
 		res.writeHeader(200,{"content-type":"text/css"});
 		res.end(b);
 	});

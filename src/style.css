@@ -55,12 +55,3 @@ input[type="text"]:focus {
 	padding: 10px;
 	border-radius: 10px;
 }
-
-.unko:before{
-	content:"あああああああああああああああああああああああああああああああ！！！！！！！！！！！（ﾌﾞﾘﾌﾞﾘﾌﾞﾘﾌﾞﾘｭﾘｭﾘｭﾘｭﾘｭﾘｭ！！！！！！ﾌﾞﾂﾁﾁﾌﾞﾌﾞﾌﾞﾁﾁﾁﾁﾌﾞﾘﾘｲﾘﾌﾞﾌﾞﾌﾞﾌﾞｩｩｩｩｯｯｯ！！！！！！！）";
-	color:brown;
-}
-.toilet:before{
-	content:"流されました";
-	color:rgba(255,255,255,0.5);
-}

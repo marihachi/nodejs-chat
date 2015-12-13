@@ -65,8 +65,8 @@ io.on('connection', function (socket) {
 		nameList.push(name);
 		joincount++;
 		socket.emit("join");
-		console.log("join",　name,　socket.handshake.address.address);
-		io.emit("system",　name　+　"さんが入室しました");
+		console.log("join",name,socket.handshake.address.address);
+		io.emit("system",name+"さんが入室しました");
 		io.emit("updateinfo");
 		socket.on("chat message", function (msg) {
 			console.log(msg);

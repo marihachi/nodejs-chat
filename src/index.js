@@ -74,6 +74,7 @@ io.on('connection', function (socket) {
 			io.emit("chat message", { name, msg });
 		});
 		socket.on("disconnect", function () {
+			nameList.pop(name);
 			joincount--;
 			io.emit("updateinfo");
 			io.emit("system", name + "さんが退室したようです");

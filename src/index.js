@@ -44,7 +44,7 @@ setTimeout(function () {
 }, 5000);
 var nameList = [];
 io.on('connection', function (socket) {
-	console.log('a user connected');
+	console.log('user connected');
 	romcount++;
 	io.emit("updateinfo");
 	var name = "";
@@ -55,6 +55,7 @@ io.on('connection', function (socket) {
 		}
 		if (name !== "") {
 			io.emit("system", name + "さんが" + _name + "として入ろうとしましたが、すでに入室していました。");
+			console.log("joinerr",name,_name);
 			return;
 		}
 		if (_name.length > 20) {
@@ -69,7 +70,7 @@ io.on('connection', function (socket) {
 		io.emit("system",name+"さんが入室しました");
 		io.emit("updateinfo");
 		socket.on("chat message", function (msg) {
-			console.log(msg);
+			console.log("chat",name,msg);
 			io.emit("updateinfo");
 			io.emit("chat message", { name, msg });
 		});
@@ -78,6 +79,7 @@ io.on('connection', function (socket) {
 			joincount--;
 			io.emit("updateinfo");
 			io.emit("system", name + "さんが退室したようです");
+			console.log("bay",name);
 		});
 		socket.on("unko", function () {
 			io.emit("unko", name);

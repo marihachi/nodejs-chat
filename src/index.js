@@ -1,4 +1,5 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require("fs");
@@ -7,6 +8,7 @@ var joincount = 0;
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/assets'));
 
 app.get('/', function (req, res) {
 	res.render("index.jade");

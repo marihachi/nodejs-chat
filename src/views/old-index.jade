@@ -1,19 +1,21 @@
+doctype html
 html
 	head
 		meta(charset="UTF-8")
-		meta(name="viewport",content="width=device-width")
-		title chat
+		meta(name="viewport", content="width=device-width")
+		title
+			| chat
 		script(src="/socket.io/socket.io.js")
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
 		script(src="/script.js")
-		link(rel="stylesheet",href="/common.css")
+		link(href="/common.css", rel="stylesheet")
 	body
 		form#a
-			input(type="text",style="width:75%",id="name",placeholder="名前")
-			input(type="submit",value="join",style="width:25%;")
-		form#b(style="display:none;")
-			input(type="text",style="width:75%",name="body",id="body",placeholder="内容")
-			input(type="submit",value="send",style="width:12.5%;")
-			input(type="button",id="taisitu",style="width:12.5%;",value="退出")
-		div#timeline
-		| ようこそ！
+			input#name(type="text", style="width: 75%", placeholder="名前")
+			input(type="submit", value="join", style="width: 25%")
+		form#b(style="display:none")
+			input#body(type="text", style="width: 75%", name="body", placeholder="内容")
+			input(type="submit", value="send", style="width: 12.5%")
+			input#taisitu(type="button", style="width: 12.5%", value="退出")
+		#timeline
+			| ようこそ！

@@ -79,7 +79,7 @@ io.on('connection', function (socket) {
 			joincount--;
 			io.emit("updateinfo");
 			io.emit("system", name + "さんが退室したようです");
-			console.log("bay",name);
+			console.log("bye",name);
 		});
 		socket.on("unko", function () {
 			io.emit("unko", name);

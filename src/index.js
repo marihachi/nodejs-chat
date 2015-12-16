@@ -1,12 +1,11 @@
 var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require("fs");
 
 var romcount = 0;
 var joincount = 0;
-
-var app = express();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');

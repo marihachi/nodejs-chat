@@ -11,20 +11,6 @@ app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/assets'));
 
-var map;
-var MAP_WIDTH=16;
-var MAP_HEIGHT=16;
-(function(){
-	var i,j;
-	map=[];
-	for(i=0;i<MAP_HEIGHT;i++){
-		map[i]=[];
-		for(j=0;j<MAP_WIDTH;j++){
-			map[i][j]={id:0};
-		}
-	}
-})();
-
 app.get('/', function (req, res) {
 	res.render("index.jade");
 });
@@ -36,11 +22,6 @@ app.get('/old', function (req, res) {
 app.get('/count', function (req, res) {
 	res.writeHeader(200, {"content-type": "text/json"});
 	res.end(JSON.stringify({rom: romcount - joincount, join: joincount}));
-});
-
-app.get('/room', function (req, res) {
-	res.writeHeader(200, {"content-type": "text/json"});
-	res.end(JSON.stringify({map,width:MAP_WIDTH,height:MAP_HEIGHT}));
 });
 
 setTimeout(function () {

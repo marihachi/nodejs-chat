@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Petitsurume/nodejschat#readme",
   "dependencies": {
     "autoprefixer": "^6.1.2",
+    "crypto": "0.0.3",
     "del": "^2.2.0",
     "express": "^4.13.3",
     "gulp": "^3.9.0",

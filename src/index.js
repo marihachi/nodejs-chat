@@ -30,33 +30,35 @@ setTimeout(function () {
 
 var nameList = [];
 io.on('connection', function (socket) {
-	console.log('user connected',socket.handshake.address);
+	var userhash=require('crypto').createHash('sha1').update(''+Date.now()).digest('hex').substr(0,8);
+	console.log(userhash,"connect",socket.handshake.address);
 	romcount++;
 	io.emit("updateinfo");
 	var name = "";
 	socket.on("join", function (_name) {
 		if (nameList.indexOf(_name) !== -1) {
 			socket.emit("system", _name + "という名前はすでに使われています。");
+			console.log(userhash,"used name",_name);
 			return;
 		}
 		if (name !== "") {
 			io.emit("system", name + "さんが" + _name + "として入ろうとしましたが、すでに入室していました。");
-			console.log("joinerr", name, _name);
+			console.log(userhash,"joinerr", name, _name);
 			return;
 		}
 		if (_name.length > 20) {
-			socket.emit("system", "名前は20文字までです");
+			socket.emit(userhash,"system", "名前は20文字までです");
 			return;
 		}
 		name = _name;
 		nameList.push(name);
 		joincount++;
 		socket.emit("join");
-		console.log("join", name, socket.handshake.address);
+		console.log(userhash,"join", name, socket.handshake.address);
 		io.emit("system", name + "さんが入室しました");
 		io.emit("updateinfo");
 		socket.on("chat message", function (msg) {
-			console.log("chat", name, msg);
+			console.log(userhash,"chat", name, msg);
 			io.emit("updateinfo");
 			io.emit("chat message", {name, msg });
 		});
@@ -65,7 +67,7 @@ io.on('connection', function (socket) {
 			joincount--;
 			io.emit("updateinfo");
 			io.emit("system", name + "さんが退室したようです");
-			console.log("bye", name);
+			console.log(userhash,"bye", name);
 		});
 		socket.on("unko", function () {
 			io.emit("unko", name);

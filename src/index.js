@@ -30,7 +30,7 @@ setTimeout(function () {
 
 var nameList = [];
 io.on('connection', function (socket) {
-	console.log('user connected');
+	console.log('user connected',socket.handshake.address);
 	romcount++;
 	io.emit("updateinfo");
 	var name = "";

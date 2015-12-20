@@ -20,7 +20,7 @@ app.get('/old', function (req, res) {
 });
 
 app.get('/count', function (req, res) {
-	res.writeHeader(200, {"content-type": "text/json"});
+	res.writeHeader(200, {"content-type": "application/json"});
 	res.end(JSON.stringify({rom: romcount - joincount, join: joincount}));
 });
 

@@ -17,14 +17,16 @@ gulp.task('build:clean', function () {
 });
 
 gulp.task('build:autoprefixer', function () {
-	return gulp.src('./src/*.css')
+	return gulp.src('./src/**/*.css')
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
 		.pipe(gulp.dest('./dest'));
 });
 
 gulp.task('build:copy', function () {
-	return gulp.src(['./src/**','!./src/*.css'])
-		.pipe(gulp.dest('./dest'));
+	return gulp.src([
+		'./src/**/*',
+		'!./src/**/*.css'
+	]).pipe(gulp.dest('./dest'));
 });
 
 gulp.task('test', []);

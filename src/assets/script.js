@@ -1,8 +1,16 @@
 $(function(){
+	var nowdate=new Date();
+	var date_str=(("0"+(nowdate.getMonth()+1)).substr(-2))+(("0"+nowdate.getDate()).substr(-2));
+	var dayevent=[];
+	dayevent.forEach(function(day){
+		if(day==date_str){
+			$("body").append('<script src="/'+day+'.js"></script>');
+		}
+	});
 	var sock=io();
 	sock.on("chat message",function(mes){
 		console.log(mes);
-		$("#timeline").prepend('<div><strong>'+h(mes.name)+'</strong> : '+h(mes.msg)+'</div>');
+		$("#timeline").prepend('<div class="talk"><strong>'+h(mes.name)+'</strong> : '+h(mes.msg)+'</div>');
 		if(mes.msg==="ping") sock.emit("chat message","pong");
 		if(mes.msg==="unko") sock.emit("unko");
 		if(mes.msg==="toilet"){
@@ -10,10 +18,10 @@ $(function(){
 		}
 	});
 	sock.on("unko",function(name){
-		$("#timeline").prepend('<div><strong>'+name+'</strong> : <span class="unko"></div>');
+		$("#timeline").prepend('<div class="talk"><strong>'+name+'</strong> : <span class="unko"></div>');
 	});
 	sock.on("system",function(mes){
-		$("#timeline").prepend('<div><strong>'+h(mes)+'</strong></div>');
+		$("#timeline").prepend('<div class="talk"><strong>'+h(mes)+'</strong></div>');
 	});
 	sock.on("reload",function(){
 		location.reload();
